@@ -64,4 +64,6 @@ fun DiceRollerApp() {
                 Text(text = stringResource(R.string.roll), fontSize = 24.sp)
             }
         }
+
+        //testowy komentarz pod commita
     }
