@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lemonade</string>
+    <string name="LemonTree">Choose Lemon From Tree</string>
+    <string name="LemonSqueeze">Squeeze Lemon</string>
+    <string name="LemonDrink">Drnik Your Lemonade </string>
+    <string name="LemonRestart">Click to restart</string>
+
+</resources>
