@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">30 Days App</string>
+
+    <string name="day1">Dzień 1</string>
+    <string name="short_desc_day1">Rozgrzewka – lekki trening</string>
+    <string name="long_desc_day1">Długi opis Dnia 1 – 10 minut rozgrzewki, rozciąganie i technika.</string>
+
+    <string name="day2">Dzień 2</string>
+    <string name="short_desc_day2">Trening cardio – trochę potu</string>
+    <string name="long_desc_day2">Długi opis Dnia 2 – 15 minut biegu, wskazówki, tempo i oddech.</string>
+
+    <string name="day3">Dzień 3</string>
+    <string name="short_desc_day3">Siłowy trening rąk i nóg</string>
+    <string name="long_desc_day3">Długi opis Dnia 3 – ćwiczenia siłowe, poprawna technika, bezpieczeństwo.</string>
+
+    <string name="day4">Dzień 4</string>
+    <string name="short_desc_day4">Stretching i mobilność</string>
+    <string name="long_desc_day4">Długi opis Dnia 4 – rozciąganie całego ciała, poprawa zakresu ruchu.</string>
+
+    <string name="day5">Dzień 5</string>
+    <string name="short_desc_day5">Mini challenge – sprawdź swoje siły</string>
+    <string name="long_desc_day5">Długi opis Dnia 5 – test wytrzymałości, pomiar postępów i motywacja.</string>
+
+</resources>

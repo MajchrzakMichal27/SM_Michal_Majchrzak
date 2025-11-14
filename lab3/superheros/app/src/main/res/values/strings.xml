@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Superheros</string>
+
+    <string name="hero_bohater1">bohater1</string>
+    <string name="desc_bohater1">jest totalnym koxem kazdy czuje respekt</string>
+
+    <string name="hero_bohater2">bohater2</string>
+    <string name="desc_bohater2">jakis biedak ale fajny</string>
+
+    <string name="hero_bohater3">bohater3</string>
+    <string name="desc_bohater3">spoko ziomeczek lubi sie napic piwka</string>
+
+    <string name="hero_bohater4">bohater4</string>
+    <string name="desc_bohater4">nikt nie wie kto to</string>
+
+    <string name="hero_bohater5">bohater5</string>
+    <string name="desc_bohater5">Tak naprawde jest zly</string>
+
+    <string name="hero_bohater6">bohater6</string>
+    <string name="desc_bohater6">czasami lubi wypic piwko</string>
+
+</resources>
