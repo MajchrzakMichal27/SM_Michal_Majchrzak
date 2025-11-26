@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">CityApp</string>
+
+    <!-- KATEGORIE -->
+    <string name="cat_parks">Parki</string>
+    <string name="cat_food">Jedzenie</string>
+    <string name="cat_museums">Muzea</string>
+
+    <!-- PARKI -->
+    <string name="park_1">Park Centralny</string>
+    <string name="park_1_short">Duży, zielony park w centrum miasta</string>
+    <string name="park_1_long">
+        Park Centralny to największy park w mieście. Znajdują się w nim alejki spacerowe,
+        duży staw, atrakcje dla dzieci oraz trasy rowerowe. Idealne miejsce na odpoczynek.
+    </string>
+
+    <string name="park_2">Park Wodny</string>
+    <string name="park_2_short">Park z fontannami i ścieżkami nad wodą</string>
+    <string name="park_2_long">
+        Park Wodny słynie z pięknych fontann, mostków i widoków na jezioro.
+        Popularny wśród spacerowiczów, szczególnie wieczorami.
+    </string>
+
+    <!-- JEDZENIE -->
+    <string name="food_1">Pizzeria Napoli</string>
+    <string name="food_1_short">Najlepsza pizza w mieście</string>
+    <string name="food_1_long">
+        Pizzeria Napoli oferuje autentyczną włoską pizzę pieczoną w piecu opalanym drewnem.
+        Świetna atmosfera i wyjątkowe smaki.
+    </string>
+
+    <!-- MUZEA -->
+    <string name="museum_1">Muzeum Historii Miasta</string>
+    <string name="museum_1_short">Poznaj historię swojego miasta</string>
+    <string name="museum_1_long">
+        Muzeum Historii Miasta prezentuje wystawy od średniowiecza po czasy współczesne.
+        Multimedialne prezentacje i przewodnicy dodają atrakcyjności.
+    </string>
+
+</resources>
