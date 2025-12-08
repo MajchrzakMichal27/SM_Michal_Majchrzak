@@ -16,10 +16,18 @@ import com.example.wifisygnalanalizer.vm.WifiViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.provider.Settings
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Alignment
 
 @Composable
-fun WifiScreen(viewModel: WifiViewModel,    requestPermissionLauncher: androidx.activity.result.ActivityResultLauncher<Array<String>>
-) {
+fun WifiScreen(viewModel: WifiViewModel, requestPermissionLauncher: androidx.activity.result.ActivityResultLauncher<Array<String>>) {
     val history by viewModel.history.collectAsState()
     val minRssi by viewModel.minRssi.collectAsState()
     val maxRssi by viewModel.maxRssi.collectAsState()
@@ -27,17 +35,39 @@ fun WifiScreen(viewModel: WifiViewModel,    requestPermissionLauncher: androidx.
 
     val context = LocalContext.current
 
+    var isFirstRequest by remember { mutableStateOf(true) }
+
     if (!hasPermission) {
-        PermissionRequestScreen(
-            onRequestPermission = {
-                requestPermissionLauncher.launch(
-                    arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
+        val shouldShowRationale = ActivityCompat.shouldShowRequestPermissionRationale(
+            context as Activity,
+            Manifest.permission.ACCESS_FINE_LOCATION)
+
+        if (!shouldShowRationale && isFirstRequest) {
+            PermissionRequestScreen(
+                onRequestPermission = {
+                    isFirstRequest = false
+                    requestPermissionLauncher.launch(
+                        arrayOf(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        )
                     )
-                )
-            }
-        )
+                }
+            )
+        } else if (shouldShowRationale) {
+            PermissionRequestScreen(
+                onRequestPermission = {
+                    requestPermissionLauncher.launch(
+                        arrayOf(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        )
+                    )
+                }
+            )
+        } else {
+            GoToSettings()
+        }
         return
     }
 
@@ -103,7 +133,8 @@ fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .padding(32.dp),
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             "Aby odczytać poziom sygnału WiFi, aplikacja potrzebuje uprawnienia do lokalizacji.",
@@ -115,3 +146,33 @@ fun PermissionRequestScreen(onRequestPermission: () -> Unit) {
         }
     }
 }
+
+@Composable
+fun GoToSettings() {
+    val context = LocalContext.current
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(32.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            "Odrzuciłeś opcje udostępniania lokalizacji" +
+                    "Aby odczytać poziom sygnału WiFi, aplikacja potrzebuje uprawnienia do lokalizacji."+
+                    "Aby aplikacja mogła działać, przyznaj je w ustawieniach.",
+            style = MaterialTheme.typography.titleMedium
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = {
+            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                data = Uri.fromParts("package", context.packageName, null)
+            }
+            context.startActivity(intent)
+        }) {
+            Text("Otwórz ustawienia")
+        }
+    }
+}
+

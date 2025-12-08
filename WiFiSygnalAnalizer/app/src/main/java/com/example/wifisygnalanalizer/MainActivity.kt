@@ -8,7 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.wifisygnalanalizer.data.LogDistanceEstimator
+import com.example.wifisygnalanalizer.data.Estimator
 import com.example.wifisygnalanalizer.wyglad.WifiScreen
 import com.example.wifisygnalanalizer.vm.WifiViewModel
 
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
                 if (modelClass.isAssignableFrom(WifiViewModel::class.java)) {
                     @Suppress("UNCHECKED_CAST")
-                    return WifiViewModel(this@MainActivity, LogDistanceEstimator()) as T
+                    return WifiViewModel(this@MainActivity, Estimator()) as T
                 }
                 throw IllegalArgumentException("Unknown ViewModel class")
             }
@@ -33,10 +33,11 @@ class MainActivity : ComponentActivity() {
         wifiViewModel.setPermissionGranted(granted)
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Sprawdzenie uprawnień przy starcie
         val hasPermission = ContextCompat.checkSelfPermission(
             this,
             Manifest.permission.ACCESS_FINE_LOCATION
