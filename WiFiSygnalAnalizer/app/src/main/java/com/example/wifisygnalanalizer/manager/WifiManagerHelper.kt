@@ -27,7 +27,7 @@ class WifiManagerHelper(
                     if (delayMsBetween > 0) Thread.sleep(delayMsBetween)
                 }
 
-                val distance = distanceEstimator.estimateDistanceFromRssiSamples(rssiSamples)
+                val distance = distanceEstimator.estimateDistanceFromRssiSamples(rssiSamples, lastInfo.frequency)
 
                 WifiMeasurement(
                     timestamp = System.currentTimeMillis(),
