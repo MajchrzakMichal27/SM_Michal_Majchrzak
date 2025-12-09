@@ -1,13 +1,11 @@
 <manifest package="com.example.wifisygnalanalizer"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> <!--dostep do wifi-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> <!--dostep do sieci-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!--dostep do lokalizacji-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!--przyblizona lokalizacja-->
 
-    <!-- Nie jest wymagane do pomiarów WiFi, ale przydaje się w debugowaniu -->
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:label="WiFiLogger"
